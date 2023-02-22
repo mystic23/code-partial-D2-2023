@@ -8,4 +8,4 @@ class Nodo:
         self.height = 1
 
     def __str__(self):
-        return  f"Nodo : {self.value}"
+        return  f" {self.value}"

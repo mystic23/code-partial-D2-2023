@@ -1,4 +1,4 @@
-from BTS import BTS
+from BinaryTree import BTS
 ###Solución Tercer punto 
 #InOrder traversal
 #A B C D E G H K L M 

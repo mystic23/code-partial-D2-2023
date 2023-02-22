@@ -1,7 +1,7 @@
-from BTS import *
 from node import Nodo
+from BinaryTree import BTS
 
-tree = bts()
+tree = BTS()
 #Inserción individual
 #tree.insert(5)
 #tree.insert(3)
@@ -16,42 +16,32 @@ tree = bts()
 
 #tree.insert_several(values)
 #ARMANDO EL ARBOL MANUALMENTE
-c = Nodo('A')
-c.left = Nodo('B')
-c.left.left = Nodo('D')
-c.left.left.left = Nodo('G')
-c.left.left.left.left = Nodo('K')
-c.left.left.right = Nodo('H')
-c.left.left.right.left = Nodo('L')
-c.left.left.right.right = Nodo('M')
-c.left.left.right.left = Nodo('L')
-c.right = Nodo('C')
-c.right.left = Nodo('E')
+tree.root = Nodo('A')
+tree.root.left = Nodo('B')
+tree.root.left.left = Nodo('D')
+tree.root.left.left.left = Nodo('G')
+tree.root.left.left.left.left = Nodo('K')
+tree.root.left.left.right = Nodo('H')
+tree.root.left.left.right.left = Nodo('L')
+tree.root.left.left.right.right = Nodo('M')
+tree.root.left.left.right.left = Nodo('L')
+tree.root.right = Nodo('C')
+tree.root.right.left = Nodo('E')
 
-tree.insert(c)
-tree.insert(c.left)
-tree.insert(c.left.left )
-tree.insert(c.left.left.left )
-tree.insert(c.left.left.left.left)
-tree.insert(c.left.left.right)
-tree.insert(c.left.left.right.left)
-tree.insert(c.left.left.right.right)
-tree.insert(c.left.left.right.left)
-tree.insert(c.right)
-tree.insert(c.right.left)
+
 
 #print(tree.search(5))  # True
 #print(tree.search(10)) # False
 
-print("Arbol antes de eliminar un nodo")
-tree.InOrderPrint(tree.root)
-print()
+#print("Arbol antes de eliminar un nodo")
+#tree.InOrderPrint(tree.root)
+#print()
 
 #tree.delete(6)
-print("Arbol despuesde eliminar un nodo - InOrder")
+print("Arbol  - InOrder")
 tree.InOrderPrint(tree.root)
-print("\nArbol despuesde eliminar un nodo - PreOrder")
+print("\nArbol  - PreOrder")
 tree.PreOrderPrint(tree.root)
-print("\nArbol despuesde eliminar un nodo - PostOrder")
+print("\nArbol  - PostOrder")
 tree.PostOrderPrint(tree.root)
 print()
