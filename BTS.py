@@ -1,6 +1,6 @@
 from node import Nodo
 
-class BTS:
+class bts:
     
     def __init__(self) :
         self.root = None 
@@ -110,13 +110,13 @@ tree = BTS()
 #tree.insert(8)
 
 #-> Insercion de varios
-values = [5,3,7,2,4,6,8]
+values = ['A',['B']]
 
 tree.insert_several(values)
 
 
-print(tree.search(5))  # True
-print(tree.search(10)) # False
+print(tree.search('A'))  # True
+print(tree.search('E')) # False
 
 print("Arbol antes de eliminar un nodo")
 tree.InOrderPrint(tree.root)

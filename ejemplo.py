@@ -69,6 +69,7 @@ if __name__ == "__main__":
     root.insert("h")
     root.insert("j")
     root.insert("k")
+    
 
 
 #1. Print all nodes InOrder
