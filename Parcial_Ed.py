@@ -1,31 +1,42 @@
+from node import Nodo
 from BinaryTree import BTS
 ###Solución Tercer punto 
-#InOrder traversal
-#A B C D E G H K L M 
-# PreOrder traversal
-#A B D C G E K H L M
-# PostOrder traversal
-#C E H M L K G D B A
-
-
+print("Solución tercer punto")
+#Creacion manual del arbol
 tree = BTS()
-values = [5,3,7,2,4,6,8]
+tree.root = Nodo('A')
+tree.root.left = Nodo('B')
+tree.root.left.left = Nodo('D')
+tree.root.left.left.left = Nodo('G')
+tree.root.left.left.left.left = Nodo('K')
+tree.root.left.left.right = Nodo('H')
+tree.root.left.left.right.left = Nodo('L')
+tree.root.left.left.right.right = Nodo('M')
+tree.root.left.left.right.left = Nodo('L')
+tree.root.right = Nodo('C')
+tree.root.right.left = Nodo('E')
 
-tree.insert_several(values)
-
-
-print(tree.search(5))  # True
-print(tree.search(10)) # False
-
-print("Arbol antes de eliminar un nodo")
+print("Arbol   - InOrder")
 tree.InOrderPrint(tree.root)
-print()
-
-#tree.delete(6)
-print("Arbol despuesde eliminar un nodo - InOrder")
-tree.InOrderPrint(tree.root)
-print("\nArbol despuesde eliminar un nodo - PreOrder")
+print("\nArbol - PreOrder")
 tree.PreOrderPrint(tree.root)
-print("\nArbol despuesde eliminar un nodo - PostOrder")
+print("\nArbol - PostOrder")
 tree.PostOrderPrint(tree.root)
 print()
+##Solucion
+#Arbol   - InOrder
+# K  G  D  L  H  M  B  A  E  C
+#Arbol - PreOrder
+# A  B  D  G  K  H  L  M  C  E
+#Arbol - PostOrder
+# K  G  L  M  H  D  B  E  C  A
+
+
+###Solución segundo punto
+print("Solución segundo punto")
+##Preguntas:
+##Realizar un algoritmo que dado un BST, escriba el padre del nodo cuya
+#información es la menor y mayor del árbol, también debe decir en qué nivel se
+#encontraron los padres. (Queda a su disposición que información quiere mostrar
+#del nodo padre).
+

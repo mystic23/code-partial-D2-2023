@@ -12,21 +12,26 @@ tree = BTS()
 #tree.insert(8)
 
 #-> Insercion de varios
-#values = [5,3,7,2,4,6,8]
+values = [5,3,7,2,4,6,8]
+tree.insert_several(values)
 
-#tree.insert_several(values)
+height_tree = tree.Obheight()
+height_node = tree.Obheight_(tree.root.right)
+
+print(f'La altura del arbol es { height_tree}')
+print(f'la altura del nodo 7 es {height_node}')
 #ARMANDO EL ARBOL MANUALMENTE
-tree.root = Nodo('A')
-tree.root.left = Nodo('B')
-tree.root.left.left = Nodo('D')
-tree.root.left.left.left = Nodo('G')
-tree.root.left.left.left.left = Nodo('K')
-tree.root.left.left.right = Nodo('H')
-tree.root.left.left.right.left = Nodo('L')
-tree.root.left.left.right.right = Nodo('M')
-tree.root.left.left.right.left = Nodo('L')
-tree.root.right = Nodo('C')
-tree.root.right.left = Nodo('E')
+#tree.root = Nodo('A')
+#tree.root.left = Nodo('B')
+#tree.root.left.left = Nodo('D')
+#tree.root.left.left.left = Nodo('G')
+#tree.root.left.left.left.left = Nodo('K')
+#tree.root.left.left.right = Nodo('H')
+#tree.root.left.left.right.left = Nodo('L')
+#tree.root.left.left.right.right = Nodo('M')
+#tree.root.left.left.right.left = Nodo('L')
+#tree.root.right = Nodo('C')
+#tree.root.right.left = Nodo('E')
 
 
 

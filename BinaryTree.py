@@ -1,10 +1,12 @@
 from node import Nodo
 
 class BTS:
-    
+
+##Raiz  
     def __init__(self) :
         self.root = None 
-      
+## Insert individual, manual , list
+
     def insert(self, value):
         new = Nodo(value)
         if self.root is None:
@@ -27,7 +29,9 @@ class BTS:
                 current.right = new
             else: 
                 self.insert_recursive(new, current.right)
-    
+        current.height = 1 + max(self.Obheight_(current.left),
+                                 self.Obheight_(current.right))
+## Buscar 
     def search(self, value):
         return self.search_recursive(value, self.root)
     
@@ -41,6 +45,7 @@ class BTS:
         else:
             return self.search_recursive(value,current.right)
         
+## Eliminar
     def delete(self, value):
         self.root = self.delete_recursive(value, self.root)
     
@@ -67,7 +72,8 @@ class BTS:
             current.value = son.value
             current.right = self.delete_recursive(son.value, current.right)
             return current
-        
+
+##Encontrar al hijo   
     def find_son(self, current):
         while current.left is not None:    
             current =  current.left 
@@ -96,38 +102,51 @@ class BTS:
         else:
             self.PostOrderPrint(current.left)
             self.PostOrderPrint(current.right)
-            print(current, end=' ')  
+            print(current, end=' ') 
+
+##Obtener alturas 
+    def height_tree(self):
+        if self.root is None:
+            return 0
+        else:
+            return self.root.height
+    
+    def height_(self, current):
+        if current is None:
+            return 0
+        else: 
+            return current.height
         
-## %%  
-tree = BTS()
-#Inserción individual
-#tree.insert(5)
-#tree.insert(3)
-#tree.insert(7)
-#tree.insert(2)
-#tree.insert(4)
-#tree.insert(6)
-#tree.insert(8)
-
-#-> Insercion de varios
-values = ['A',['B']]
-
-tree.insert_several(values)
-
-
-print(tree.search('A'))  # True
-print(tree.search('E')) # False
-
-print("Arbol antes de eliminar un nodo")
-tree.InOrderPrint(tree.root)
-print()
-
-#tree.delete(6)
-print("Arbol despuesde eliminar un nodo - InOrder\n")
-tree.InOrderPrint(tree.root)
-print("\nArbol despuesde eliminar un nodo - PreOrder")
-tree.PreOrderPrint(tree.root)
-print("\nArbol despuesde eliminar un nodo - PostOrder")
-tree.PostOrderPrint(tree.root)
-print()
-
+#La familia gg
+    def search_dad(self, value):
+        return self.search_dad_recursive(self.root, value, None)
+    
+    def search_dad_recursive(self, current, value, dad):
+        if current is None:
+            return None
+        elif value is current.value:
+            return dad
+        elif value < current.value:
+            return self.search_dad_recursive(current.left, value, current)
+        else: 
+            return self.search_dad_recursive(current.right, value, current)
+    def search_grandpa(self, value):
+        dad =self.search_dad(value)
+        if dad is None:
+            return None
+        else: 
+            return self.search_dad(dad.value)
+    
+                
+        
+    def Obheight(self,Nodo=None ):
+        if Nodo is None: 
+            return self.Obheight_(self.root)
+        else:
+            return self.Obheight_(Nodo)
+    
+    def Obheight_(self, current):
+        if current is None:
+            return -1
+        else: 
+            return current.height
