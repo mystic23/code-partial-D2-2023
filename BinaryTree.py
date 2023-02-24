@@ -4,6 +4,7 @@ class BTS:
 
 ##Raiz  
     def __init__(self) :
+     
         self.root = None 
 ## Insert individual, manual , list
 
@@ -15,6 +16,7 @@ class BTS:
             self.insert_recursive(new, self.root)
     
     def insert_several(self, list_value: list ):
+
         for value in list_value:
             self.insert(value)
     
@@ -197,3 +199,15 @@ class BTS:
             print(f"Level {level}: {nodes}")
 
         return nodes_by_level
+    def get_node_level(self, value):
+        current = self.root
+        level = 1
+        while current is not None:
+            if current.value == value:
+                return level
+            elif value < current.value:
+                current = current.left
+            else:
+                current = current.right
+            level += 1
+        return None

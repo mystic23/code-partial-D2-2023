@@ -41,13 +41,14 @@ print("Solución segundo punto")
 #del nodo padre).
 
 tree1 = BTS()
-values1 = [6, 5, 4, 5, 6, 2, 9,8,7,10]
+values1 = [6, 5, 4, 5, 2, 9,6, 8,7,10]
 tree1.insert_several(values1)
 print("---------------")
 print("ALTURA DEL ARBOL: ", tree1.height_tree())
 
 print("--Minimos--")
 min = tree1.min()
+
 print("altura minimo del arbol:", tree1.get_hight(Nodo(min)))
 
 print("altura del valor menor del arbol ", tree1.get_hight(Nodo(min)))
