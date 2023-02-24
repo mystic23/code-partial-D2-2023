@@ -40,3 +40,10 @@ print("Solución segundo punto")
 #encontraron los padres. (Queda a su disposición que información quiere mostrar
 #del nodo padre).
 
+tree1 = BTS()
+values1 = [8,4,3,2,5,7,9]
+tree1.insert_several(values1)
+
+print("Valor minimo del arbol:", tree1.min())
+print("Valor maximo del arbol ", tree1.max())
+

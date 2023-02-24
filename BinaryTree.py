@@ -104,19 +104,7 @@ class BTS:
             self.PostOrderPrint(current.right)
             print(current, end=' ') 
 
-##Obtener alturas 
-    def height_tree(self):
-        if self.root is None:
-            return 0
-        else:
-            return self.root.height
-    
-    def height_(self, current):
-        if current is None:
-            return 0
-        else: 
-            return current.height
-        
+
 #La familia gg
     def search_dad(self, value):
         return self.search_dad_recursive(self.root, value, None)
@@ -130,6 +118,7 @@ class BTS:
             return self.search_dad_recursive(current.left, value, current)
         else: 
             return self.search_dad_recursive(current.right, value, current)
+        
     def search_grandpa(self, value):
         dad =self.search_dad(value)
         if dad is None:
@@ -137,16 +126,36 @@ class BTS:
         else: 
             return self.search_dad(dad.value)
     
-                
-        
-    def Obheight(self,Nodo=None ):
-        if Nodo is None: 
-            return self.Obheight_(self.root)
+    def search_uncle(self, value):
+        dad = self.search_dad(value)
+        if dad is None:
+            return None
         else:
-            return self.Obheight_(Nodo)
+            grandpa = self.search_grandpa(value)
+            if grandpa is None:
+                return None
+            elif dad == grandpa.left:
+                return grandpa.right.value if grandpa.right is not None else None
+            else: 
+                return grandpa.left.value if grandpa.left is not None else None
+        
+    def min(self):
+       if self.root is None:
+           return None
+       else: return self.min_recursive(self.root)
+       
+    def min_recursive(self, current):
+        if current.left is None:
+            return current.value
+        else: return self.min_recursive(current.left)
     
-    def Obheight_(self, current):
-        if current is None:
-            return -1
-        else: 
-            return current.height
+    def max(self):
+        if self.root is None:
+           return None
+        else:
+           return self.max_recursive(self.root)
+    
+    def max_recursive(self, current):
+        if current.right is None:
+            return current.value
+        else: return self.max_recursive(current.right)

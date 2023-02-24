@@ -15,11 +15,11 @@ tree = BTS()
 values = [5,3,7,2,4,6,8]
 tree.insert_several(values)
 
-height_tree = tree.Obheight()
-height_node = tree.Obheight_(tree.root.right)
+#height_tree = tree.Obheight()
+#height_node = tree.Obheight_(tree.root.right)
 
-print(f'La altura del arbol es { height_tree}')
-print(f'la altura del nodo 7 es {height_node}')
+#print(f'La altura del arbol es { height_tree}')
+#print(f'la altura del nodo 7 es {height_node}')
 #ARMANDO EL ARBOL MANUALMENTE
 #tree.root = Nodo('A')
 #tree.root.left = Nodo('B')
