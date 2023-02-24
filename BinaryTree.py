@@ -24,12 +24,13 @@ class BTS:
                 current.left = new
             else:
                 self.insert_recursive(new,current.left)
-        elif new.value > current.value:
+        else :
             if current.right is None:
                 current.right = new
             else: 
                 self.insert_recursive(new, current.right)
         current.height = 1 + max(self.get_hight(current.left), self.get_hight(current.right))## Buscar 
+   
     def search(self, value):
         return self.search_recursive(value, self.root)
     
@@ -103,11 +104,7 @@ class BTS:
             print(current, end=' ') 
 ## altura
     def get_hight(self, current: Nodo) -> int:
-        '''
-        Devuelve la altura del arbol/subarbol de donde estemos tomando la raíz
-        Args:
-            current (Node) : [Node for which we're trying to find the height]
-        '''
+       
         if not current:
             return 0
         return current.height
@@ -117,35 +114,6 @@ class BTS:
             return 0
         else: return self.root.height
     
-    def height_(self, current: Nodo):
-        if current is None:
-            return 0
-        else: return current.height
-    
-    def Obheight(self, root ):
-        if root is None: 
-            return self.Obheight_(self.root)
-        else:
-            return self.Obheight_(self.root)
-
-    def Obheight_(self, current):
-        if current is None:
-            return -1
-        else: 
-            return current.height
-
-    def height_node(self, root):
-        if root is None: 
-            return -1
-        else: return root.height
-    
-    def height(self, root):
-        if root is None:
-            return -1
-        else:
-            height_left = self.height_node(self.root.left)
-            height_right = self.height_node(self.root.right)
-            return 1 + max(height_left, height_right)
 #La familia gg
     def search_dad(self, value):
         return self.search_dad_recursive(self.root, value, None)
@@ -200,3 +168,32 @@ class BTS:
         if current.right is None:
             return current.value
         else: return self.max_recursive(current.right)
+        
+    def get_nodes_by_level(self):
+        if self.root is None:
+            return {}
+
+        nodes_by_level = {}
+        current_level = 1
+        nodes_queue = [self.root]
+
+        while nodes_queue:
+            current_level_nodes = []
+            nodes_in_queue = len(nodes_queue)
+
+            for i in range(nodes_in_queue):
+                current_node = nodes_queue.pop(0)
+                current_level_nodes.append(current_node.value)
+
+                if current_node.left:
+                    nodes_queue.append(current_node.left)
+                if current_node.right:
+                    nodes_queue.append(current_node.right)
+
+            nodes_by_level[current_level] = current_level_nodes
+            current_level += 1
+
+        for level, nodes in nodes_by_level.items():
+            print(f"Level {level}: {nodes}")
+
+        return nodes_by_level

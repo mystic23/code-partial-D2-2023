@@ -72,5 +72,4 @@ print("abuelo del maximo", tree1.search_grandpa(max) , "altura : ", tree1.get_hi
 uncle = tree1.search_uncle(max)
 print("tio del maximo", uncle ,"altura : ", tree1.get_hight(uncle))
 
-
-print(tree1.root.left)
+tree1.get_nodes_by_level()
