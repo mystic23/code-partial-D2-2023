@@ -41,9 +41,27 @@ print("Solución segundo punto")
 #del nodo padre).
 
 tree1 = BTS()
-values1 = [8,4,3,2,5,7,9]
+values1 = [6, 5, 4, 5, 6, 2, 9,8,7,10]
 tree1.insert_several(values1)
+print("---------------")
+print("ALTURA DEL ARBOL: ", tree1.height_tree())
 
-print("Valor minimo del arbol:", tree1.min())
+print("--Minimos--")
+min = tree1.min()
+print("altura minimo del arbol:", tree1.get_hight(min))
+
+print("altura del valor menor del arbol ", tree1.get_hight(min))
+print("Papá del minimo", tree1.search_dad(min))
+print("abuelo del minimo",  tree1.search_grandpa(min))
+print("tio del minimo",  tree1.search_uncle(min))
+
+print ("-- Maximos --")
 print("Valor maximo del arbol ", tree1.max())
+max = tree1.max()
+print("nivel del valor maximo del arbol ", tree1.height(max))
+dad = tree1.search_dad(max)
+print("Papá del maximo",tree1.search_dad(max), "alltura: ", tree1.height(dad) )
+grandpa = tree1.search_grandpa(max) 
+print("abuelo del maximo", tree1.search_grandpa(max) , "altura : ", tree1.height(grandpa) )
+print("tio del maximo", tree1.search_uncle(max) )
 
