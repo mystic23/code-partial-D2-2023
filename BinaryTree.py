@@ -102,12 +102,13 @@ class BTS:
             self.PostOrderPrint(current.right)
             print(current, end=' ') 
 ## altura
-    def get_hight(self, current) -> int:
+    def get_hight(self, value: int) -> int:
         '''
         Devuelve la altura del arbol/subarbol de donde estemos tomando la raíz
         Args:
             current (Node) : [Node for which we're trying to find the height]
         '''
+        current = Nodo(value)
         if not current:
             return 0
         return current.height
@@ -115,9 +116,9 @@ class BTS:
     def height_tree(self):
         if self.root is None:
             return 0
-        else: return self.root.height
+        else: return self.get_hight(self.root)
     
-    def height_(self, current):
+    def height_(self, current: Nodo):
         if current is None:
             return 0
         else: return current.height
