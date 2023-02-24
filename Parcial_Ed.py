@@ -51,17 +51,23 @@ min = tree1.min()
 print("altura minimo del arbol:", tree1.get_hight(Nodo(min)))
 
 print("altura del valor menor del arbol ", tree1.get_hight(Nodo(min)))
-print("Papá del minimo", tree1.search_dad(min))
+
+print("Papá del minimo", tree1.search_dad(min), )
 print("abuelo del minimo",  tree1.search_grandpa(min))
 print("tio del minimo",  tree1.search_uncle(min))
 
 print ("-- Maximos --")
 print("Valor maximo del arbol ", tree1.max())
 max = tree1.max()
-print("nivel del valor maximo del arbol ", tree1.height(max))
+
+print("altura del valor maximo del arbol ", tree1.get_hight(Nodo(max)))
+
 dad = tree1.search_dad(max)
-print("Papá del maximo",tree1.search_dad(max), "alltura: ", tree1.height(dad) )
+print("Papá del maximo",tree1.search_dad(max), "alltura: ", tree1.get_hight(dad) )
+
 grandpa = tree1.search_grandpa(max) 
-print("abuelo del maximo", tree1.search_grandpa(max) , "altura : ", tree1.height(grandpa) )
-print("tio del maximo", tree1.search_uncle(max) )
+print("abuelo del maximo", tree1.search_grandpa(max) , "altura : ", tree1.get_hight(grandpa) )
+
+uncle = tree1.search_uncle(max)
+print("tio del maximo", uncle ,"altura : ", tree1.get_hight(uncle))
 

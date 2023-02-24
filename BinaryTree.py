@@ -167,7 +167,7 @@ class BTS:
         else: 
             return self.search_dad(dad.value)
     
-    def search_uncle(self, value):
+    def search_uncle(self, value): 
         dad = self.search_dad(value)
         if dad is None:
             return None
