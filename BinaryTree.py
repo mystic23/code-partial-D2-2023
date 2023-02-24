@@ -199,6 +199,7 @@ class BTS:
             print(f"Level {level}: {nodes}")
 
         return nodes_by_level
+    
     def get_node_level(self, value):
         current = self.root
         level = 1
@@ -211,3 +212,61 @@ class BTS:
                 current = current.right
             level += 1
         return None
+    
+    def pathsTree(self, current) -> list:
+        '''
+        Compute the path to find a branch where a node is located
+        Args:
+            current (Node) : [node from where will start to move]
+        
+        Return:
+            (list) : Return a list with each node where we passed to find our node
+        '''
+        if current is None:
+            return []
+        
+        # When a leaf is founded
+        if current.left is None and current.right is None:
+            return [[current.value]]
+        
+        left_path = self.pathsTree(current.left)
+        right_path = self.pathsTree(current.right)
+        all_paths = list()
+
+        # We extend the list of paths were we passed to arrive at the node
+        for path in left_path + right_path:
+            all_paths.append([current.value] + path)
+        return all_paths
+    
+    def costo(self ):
+        """
+        
+        aqui se calcula el menor costo
+
+        Returns:
+            _type_: _description_
+        """
+        caminos = self.pathsTree(self.root)
+        print(caminos)
+        costos = [] 
+        for i in range(len(caminos)):
+            costos.append(sum(caminos[i])/(self.get_node_level(caminos[i][-1])))
+        print(costos)
+        return min(costos) 
+    
+    def min_path(self):
+        """
+        Esto devuelve el camino con menor costo
+
+        Returns:
+            _type_: _description_
+        """
+        caminos = self.pathsTree(self.root)
+        min_cost = self.costo()
+        for i in range(len(caminos)):
+            costo_temp = sum(caminos[i])/(self.get_node_level(caminos[i][-1]))
+            if costo_temp == min_cost:
+                return caminos[i]
+            
+            
+    

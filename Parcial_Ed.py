@@ -74,3 +74,18 @@ uncle = tree1.search_uncle(max)
 print("tio del maximo", uncle ,"altura : ", tree1.get_hight(uncle))
 
 tree1.get_nodes_by_level()
+
+###Esto retorna una lista con lista de todas las ramas del arbol
+caminos = tree1.pathsTree(tree1.root)
+print(caminos)
+
+print(tree1.get_node_level(2))
+
+print(sum(caminos[0])/(tree1.get_node_level(caminos[0][-1])))
+
+
+#### esto es para calcular todos los costos d elos caminos del arbol
+
+print(tree1.costo())
+print(tree1.min_path())
+
