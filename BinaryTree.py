@@ -175,10 +175,10 @@ class BTS:
             grandpa = self.search_grandpa(value)
             if grandpa is None:
                 return None
-            elif dad == grandpa.left:
-                return grandpa.right.value if grandpa.right is not None else None
+            elif dad is grandpa.left:
+                return grandpa.right if grandpa.right is not None else None
             else: 
-                return grandpa.left.value if grandpa.left is not None else None
+                return grandpa.left if grandpa.left is not None else None
         
     def min(self):
        if self.root is None:

@@ -63,6 +63,7 @@ max = tree1.max()
 print("altura del valor maximo del arbol ", tree1.get_hight(Nodo(max)))
 
 dad = tree1.search_dad(max)
+
 print("Papá del maximo",tree1.search_dad(max), "alltura: ", tree1.get_hight(dad) )
 
 grandpa = tree1.search_grandpa(max) 
@@ -71,3 +72,5 @@ print("abuelo del maximo", tree1.search_grandpa(max) , "altura : ", tree1.get_hi
 uncle = tree1.search_uncle(max)
 print("tio del maximo", uncle ,"altura : ", tree1.get_hight(uncle))
 
+
+print(tree1.root.left)
