@@ -29,7 +29,7 @@ class BTS:
                 current.right = new
             else: 
                 self.insert_recursive(new, current.right)
-            current.height = 1 + max(self.get_hight(current.left), self.get_hight(current.right))## Buscar 
+        current.height = 1 + max(self.get_hight(current.left), self.get_hight(current.right))## Buscar 
     def search(self, value):
         return self.search_recursive(value, self.root)
     
@@ -102,13 +102,12 @@ class BTS:
             self.PostOrderPrint(current.right)
             print(current, end=' ') 
 ## altura
-    def get_hight(self, value: int) -> int:
+    def get_hight(self, current: Nodo) -> int:
         '''
         Devuelve la altura del arbol/subarbol de donde estemos tomando la raíz
         Args:
             current (Node) : [Node for which we're trying to find the height]
         '''
-        current = Nodo(value)
         if not current:
             return 0
         return current.height
@@ -116,7 +115,7 @@ class BTS:
     def height_tree(self):
         if self.root is None:
             return 0
-        else: return self.get_hight(self.root)
+        else: return self.root.height
     
     def height_(self, current: Nodo):
         if current is None:

@@ -48,9 +48,9 @@ print("ALTURA DEL ARBOL: ", tree1.height_tree())
 
 print("--Minimos--")
 min = tree1.min()
-print("altura minimo del arbol:", tree1.get_hight(min))
+print("altura minimo del arbol:", tree1.get_hight(Nodo(min)))
 
-print("altura del valor menor del arbol ", tree1.get_hight(min))
+print("altura del valor menor del arbol ", tree1.get_hight(Nodo(min)))
 print("Papá del minimo", tree1.search_dad(min))
 print("abuelo del minimo",  tree1.search_grandpa(min))
 print("tio del minimo",  tree1.search_uncle(min))
