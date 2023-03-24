@@ -41,7 +41,7 @@ print("Solución segundo punto")
 #del nodo padre).
 
 tree1 = BTS()
-values1 = [6, 5, 4, 5, 2, 9,6, 8,7,10]
+values1 = [6, 4, 5, 2, 9, 8, 7, 10]
 tree1.insert_several(values1)
 print("---------------")
 print("ALTURA DEL ARBOL: ", tree1.height_tree())
