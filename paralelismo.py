@@ -1,9 +1,11 @@
 from multiprocessing import Pool
-
+import numpy as np
 
 def f(x):
   return x*x
 
 if __name__ == '__main__':
+  v= np.random.rand(1000,1000)
   with Pool(5) as p:
-    print(o.map(f,[1,2,3]))
+    print(p.map(f,v))
+    
